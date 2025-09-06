@@ -64,18 +64,17 @@ Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Home/Product Listing Page
 
-![Home/Product Listing](./screenshots/screenshot1.png)
-![Product Listing Continued](./screenshots/screenshot2.png)
+![Home/Product Listing](./screenshots/listing1.png)
+![Product Listing Continued](./screenshots/listing2.png)
 
 ### Cart Page
 
-![Cart Page](./screenshots/screenshot3.png)
+![Cart Page](./screenshots/cart.png)
 
 ### Login Page
 
-![Login Page](./screenshots/screenshot4.png)
+![Login Page](./screenshots/login.png)
 
-> Place your screenshots in the `screenshots/` folder with the names: `screenshot1.png`, `screenshot2.png`, `screenshot3.png`, `screenshot4.png` as shown above, or update the paths if you use different names.
 
 ## License
 
