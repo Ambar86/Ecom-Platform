@@ -1,9 +1,17 @@
-import mongoose from "mongoose"
+// TypeScript: Add type declaration for global.mongooseConn and global.mongoosePromise
+declare global {
+  // eslint-disable-next-line no-var
+  var mongooseConn: typeof mongoose | null | undefined;
+  var mongoosePromise: Promise<typeof mongoose> | null | undefined;
+}
+import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI!
+const MONGODB_URI = process.env.MONGODB_URI!;
 
 if (!MONGODB_URI) {
-  throw new Error("Please define the MONGODB_URI environment variable inside .env.local")
+  throw new Error(
+    "Please define the MONGODB_URI environment variable inside .env.local"
+  );
 }
 
 /**
@@ -11,35 +19,28 @@ if (!MONGODB_URI) {
  * in development. This prevents connections growing exponentially
  * during API Route usage.
  */
-let cached = global.mongoose
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null }
+if (!global.mongooseConn) {
+  global.mongooseConn = null;
+}
+if (!global.mongoosePromise) {
+  global.mongoosePromise = null;
 }
 
 async function connectDB() {
-  if (cached.conn) {
-    return cached.conn
+  if (global.mongooseConn) {
+    return global.mongooseConn;
   }
-
-  if (!cached.promise) {
-    const opts = {
-      bufferCommands: false,
-    }
-
-    cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
-      return mongoose
-    })
+  if (!global.mongoosePromise) {
+    const opts = { bufferCommands: false };
+    global.mongoosePromise = mongoose.connect(MONGODB_URI, opts);
   }
-
   try {
-    cached.conn = await cached.promise
+    global.mongooseConn = await global.mongoosePromise;
   } catch (e) {
-    cached.promise = null
-    throw e
+    global.mongoosePromise = null;
+    throw e;
   }
-
-  return cached.conn
+  return global.mongooseConn;
 }
 
-export default connectDB
+export default connectDB;

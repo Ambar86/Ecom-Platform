@@ -1,7 +1,8 @@
-// Node.js script to seed the MongoDB database with sample items (CommonJS)
-require("dotenv").config({ path: ".env.local" });
-const connectDB = require("../lib/mongodb");
-const Item = require("../models/Item");
+import dotenv from "dotenv";
+dotenv.config({ path: ".env.local" });
+
+import connectDB from "../lib/mongodb";
+import Item from "../models/Item";
 
 const sampleItems = [
   // Electronics
@@ -93,15 +94,10 @@ const sampleItems = [
 async function seedDatabase() {
   try {
     await connectDB();
-
-    // Clear existing items
-    await Item.deleteMany({});
+    await (Item as any).deleteMany({});
     console.log("Cleared existing items");
-
-    // Insert sample items
-    const items = await Item.insertMany(sampleItems);
+    const items = await (Item as any).insertMany(sampleItems);
     console.log(`Seeded ${items.length} items successfully`);
-
     process.exit(0);
   } catch (error) {
     console.error("Error seeding database:", error);

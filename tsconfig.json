@@ -25,3 +25,14 @@
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }
+// {
+//   "compilerOptions": {
+//     "module": "commonjs",
+//     "target": "es2020",
+//     "esModuleInterop": true,
+//     "moduleResolution": "node",
+//     "resolveJsonModule": true,
+//     "outDir": "dist"
+//   },
+//   "include": ["scripts", "lib", "models"]
+// }
