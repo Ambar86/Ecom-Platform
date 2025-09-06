@@ -1,3 +1,16 @@
+### Home/Product Listing Page
+
+![Home/Product Listing](./screenshots/listing1.png)
+![Product Listing Continued](./screenshots/listing2.png)
+
+### Cart Page
+
+![Cart Page](./screenshots/cart.png)
+
+### Login Page
+
+![Login Page](./screenshots/login.png)
+
 # Ecom-Platform
 
 A full-stack e-commerce web application built with Next.js, TypeScript, MongoDB, and Mongoose.
@@ -62,20 +75,3 @@ Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Screenshots
 
-### Home/Product Listing Page
-
-![Home/Product Listing](./screenshots/listing1.png)
-![Product Listing Continued](./screenshots/listing2.png)
-
-### Cart Page
-
-![Cart Page](./screenshots/cart.png)
-
-### Login Page
-
-![Login Page](./screenshots/login.png)
-
-
-## License
-
-MIT
